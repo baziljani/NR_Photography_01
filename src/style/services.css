@@ -1,0 +1,407 @@
+.services-page{
+    background: #0f172a;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.services-hero {
+    height: 70vh;
+    background: linear-gradient rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5),
+            url('https: //cdn.pixabay.com/photo/2014/12/27/15/31/camera-581126_640.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 2rem; 
+        }
+
+.services-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease;
+    color: #E4B363;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.services-hero p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    text-shadow: #666;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s 0.2s ease both;
+}
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    outline: none;
+}
+
+.cta-btn.primary {
+    background: #e74c3c;
+    color: white;
+    border: 2px solid #e74c3c;
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+.cta-btn.primary:hover{
+    background: white;
+    color: #e74c3c;
+}
+.cta-btn.secondary:hover {
+    background: white;
+    color: #e74c3c;
+}
+.cta-btn.yellow-btn,
+.cta-btn.yellow-btn:visited {
+  background: #FFD600 !important;
+  color: #111 !important;
+  border: none !important;
+}
+
+.cta-btn.yellow-btn:hover {
+  background: #FFB300 !important;
+  color: #111 !important;
+}
+
+@media (max-width: 600px) {
+    .services-hero {
+        min-height: 60vh;
+        height: auto;
+        padding: 2rem 0.5rem;
+        text-align: center;
+    }
+    .services-hero h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .services-hero p {
+        font-size: 1rem;
+        max-width: 98vw;
+        margin: 0 auto;
+    }
+    .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+.service-title h2{
+    color: #E4B363;
+}
+.services-grid {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    padding: 4rem 0;
+}
+
+.service-card {
+    background: #0f172a !important;
+    color: #fff !important;
+    border: 2px solid #FFD600;
+    box-shadow: 0 8px 32px rgba(44,62,80,0.13);
+    border-radius: 16px;
+    height: 500px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+}
+
+.service-image {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.service-card img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-bottom: 3px solid #e74c3c; 
+}
+
+.service-card:hover .service-image img {
+    transform: scale(1.05);
+}
+
+.service-content {
+    padding: 2rem;
+}
+
+.service-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.service-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.service-description {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    min-height: 80px;
+}
+
+.learn-more-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background: #FFD600 !important;
+    color: #0f172a !important;
+    border: none !important;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background: #FFB300 !important;
+    color: #0f172a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.service-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+
+
+.service-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column; 
+}
+
+.card-content p {
+  color: #444;
+  font-size: 1.05rem;
+  margin: 0.7rem 0 0.5rem 0;
+  opacity: 1;
+  display: block;
+}
+
+.view-details-btn {
+    background: yellow;
+    color: black;
+    border-radius: 25px;
+    transition: background 0.3s ease; 
+    margin-top: auto;
+    width: max-content;
+    align-self: center;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+    .service-card {
+        height: auto;
+        min-height: 350px;
+    }
+
+    .service-card img {
+        height: 150px;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .book-now-btn {
+        width: 100%;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 2rem 0.5rem;
+    text-align: center;
+  }
+  .services-section h2 {
+    font-size: 1.5rem;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .service-card {
+    padding: 1.2rem 0.7rem;
+    font-size: 0.95rem;
+  }
+  .service-icon {
+    font-size: 1.5rem;
+  }
+  .service-link {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+    .service-card img {
+        height: 120px;
+    }
+
+    .image-grid img {
+        height: 80px;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+}
+.section-title {
+    color: #4A6FA5 !important;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+@media (max-width: 600px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+  }
+  .hamburger {
+    display: block !important;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 200;
+  }
+  .hamburger span,
+  .hamburger span:before,
+  .hamburger span:after {
+    display: block;
+    background: #222;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    margin: 6px 0;
+    transition: all 0.3s;
+  }
+}
