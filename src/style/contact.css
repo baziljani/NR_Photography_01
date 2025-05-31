@@ -76,7 +76,7 @@
     justify-content: center;
     gap: 3rem;
     flex-wrap: wrap;
-    /* flex-direction: row; */
+    flex-direction: column;
     text-align: left;
 }
 

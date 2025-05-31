@@ -3,11 +3,17 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import BookingForm from '../components/BookingForm';
 import '../style/home.css';
-import photographer1 from '../assets/photographer2.png';
+import photographer1 from '../assets/about.jpg';
 import photographer2 from '../assets/photographer2.png';
 import testimonial1 from '../assets/testmonial1.png';
 import { FaCameraRetro, FaUserFriends, FaBuilding, FaRegCalendarCheck, FaPalette, FaFilm } from 'react-icons/fa';
 import certificateImg from '../assets/certificate.png';
+import icon1 from '../assets/wedding.jpg';
+import icon2 from '../assets/porttrait.jpg';
+import icon3 from '../assets/commercial.jpg';
+import photographer1img from '../assets/event.jpg';
+import photographer2img from '../assets/editing.jpg';
+import heroImg from '../assets/video_production.jpg';
 
 
 function useAutoScrollCarousel(carouselRef, cardSelector, gap = 16, interval = 3500) {
@@ -327,9 +333,7 @@ function ServicesCarousel({ services }) {
     <div className='services-carousel-multi'>
       {getVisibleServices().map((service, idx) => (
         <div className='service-tile' key={idx}>
-          <div className='service-icon-large service-icon-circle logo-shadow'>
-            {service.icon}
-          </div>
+          <img src={service.image} alt={service.title} className='service-img-logo' />
           <div className='service-info'>
             <h3 className='service-title-alt'>{service.title}</h3>
             <p className='service-desc-alt'>{service.description}</p>
@@ -414,32 +418,32 @@ const Home = () => {
     {
       title: "Wedding Photography",
       description: "Capture your special day with our artistic wedding photography services.",
-      icon: <FaCameraRetro />
+      image: icon1
     },
     {
       title: "Portrait Sessions",
       description: "Professional portraits that reveal your true personality.",
-      icon: <FaUserFriends />
+      image: icon2
     },
     {
       title: "Commercial Photography",
       description: "High-quality images for your business and marketing needs.",
-      icon: <FaBuilding />
+      image: icon3
     },
     {
       title: "Event Coverage",
       description: "Comprehensive coverage for all your important events.",
-      icon: <FaRegCalendarCheck />
+      image: photographer1img
     },
     {
       title: "Creative Editing",
       description: "Expert retouching and creative editing to make your photos stand out.",
-      icon: <FaPalette />
+      image: photographer2img
     },
     {
       title: "Video Production",
       description: "Professional video shoots and editing for events and promotions.",
-      icon: <FaFilm />
+      image: heroImg
     }
   ];
 
@@ -478,7 +482,7 @@ const Home = () => {
             <div className='services-list-alt'>
               {services.map((service, index) => (
                 <div className='service-tile' key={index}>
-                  <div className='service-icon-large service-icon-circle logo-shadow'>{service.icon}</div>
+                  <img src={service.image} alt={service.title} className='service-img-logo' />
                   <div className='service-info'>
                     <h3 className='service-title-alt'>{service.title}</h3>
                     <p className='service-desc-alt'>{service.description}</p>
@@ -589,9 +593,9 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className='question-image'>
+          {/* <div className='question-image'>
             <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80" alt="Contact NR Photography" />
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
@@ -639,19 +643,29 @@ function BlogCarouselAuto() {
   return (
     <div className='blog-carousel' onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <div className='carousel-track blog-carousel-multi' style={getTrackStyle()}>
-        {blogPosts.map((post, idx) => (
-          <div className='blog-card' key={idx} style={{ minWidth: `${100 / visibleCount}%`, maxWidth: `${100 / visibleCount}%` }}>
-            <div className='blog-image'>
-              <img src={post.image} alt={post.title} />
+        {blogPosts.map((post, idx) => {
+          let cardStyle;
+          if (visibleCount === 1) {
+            cardStyle = { minWidth: '100%', maxWidth: '100%', width: '100%' };
+          } else if (visibleCount === 2) {
+            cardStyle = { minWidth: '50%', maxWidth: '50%', width: '50%' };
+          } else {
+            cardStyle = { minWidth: `${100 / visibleCount}%`, maxWidth: `${100 / visibleCount}%` };
+          }
+          return (
+            <div className='blog-card' key={idx} style={cardStyle}>
+              <div className='blog-image'>
+                <img src={post.image} alt={post.title} />
+              </div>
+              <div className='blog-content'>
+                <h3>{post.title}</h3>
+                <p className='date'>{post.date}</p>
+                <p>{post.desc}</p>
+                <Link to={post.link} className='read-more'>Read More →</Link>
+              </div>
             </div>
-            <div className='blog-content'>
-              <h3>{post.title}</h3>
-              <p className='date'>{post.date}</p>
-              <p>{post.desc}</p>
-              <Link to={post.link} className='read-more'>Read More →</Link>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <div className='blog-carousel-dots'>
         {Array.from({ length: length - visibleCount + 1 }).map((_, idx) => (

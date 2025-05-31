@@ -707,7 +707,7 @@
 
 @media (max-width: 400px) {
   .work-item img {
-    height: 80px;
+    /* height: 80px; */
   }
 }
 
